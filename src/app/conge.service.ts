@@ -15,4 +15,13 @@ export class CongeService {
   create(data): Observable<any> {
     return this.http.post(`${baseUrl}/conger/demande`,data);
   }
+
+  getAll(): Observable<any> {
+    return this.http.get(`${baseUrl}/manager/tasks`);
+  }
+
+  postManager(taskId,approved): Observable<any> {
+    return this.http.post(`${baseUrl}/manager/approve/tasks/${taskId}/${approved}`,{});
+  }
+
 }

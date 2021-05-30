@@ -10,13 +10,15 @@ import { DatePipe } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ListeDemandeManagerComponent } from './liste-demande-manager/liste-demande-manager.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemandeCongeComponent
+    DemandeCongeComponent,
+    ListeDemandeManagerComponent
   ],
   imports: [
     ToastrModule.forRoot(),

@@ -1,7 +1,7 @@
 <form [formGroup]="formDemande">
     <div class="form-group">
       <label>Date Début</label>
-      <input type="date" class="form-control" formControlName="dateDebut" min="{{this.date}}">
+      <input type="date" class="form-control" formControlName="dateDebut">
       <div *ngIf="formDemande.get('dateDebut').invalid &&  formDemande.get('dateDebut').errors && 
       (formDemande.get('dateDebut').dirty || formDemande.get('dateDebut').touched)">
       <small class="text-danger" *ngIf="formDemande.get('dateDebut').hasError('required')">
@@ -21,14 +21,36 @@
     </div>
 
     <div class="form-group">
-      <label>Commentaire</label>
-      <input type="text" class="form-control"  placeholder="Commentaire" formControlName="commentaire">
-      <div *ngIf="formDemande.get('commentaire').invalid &&  formDemande.get('commentaire').errors && 
-      (formDemande.get('commentaire').dirty || formDemande.get('commentaire').touched)">
-      <small class="text-danger" *ngIf="formDemande.get('commentaire').hasError('required')">
+      <label>Type Congé</label>
+      <input type="text" class="form-control" placeholder="Type de congé" formControlName="congType">
+      <div *ngIf="formDemande.get('congType').invalid &&  formDemande.get('congType').errors && 
+      (formDemande.get('congType').dirty || formDemande.get('congType').touched)">
+      <small class="text-danger" *ngIf="formDemande.get('congType').hasError('required')">
         Ce champ est requis.
       </small>
-      <small class="text-danger" *ngIf="formDemande.get('commentaire').hasError('minlength')">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Emp Name</label>
+      <input type="text" class="form-control" placeholder="Employée" formControlName="empName">
+      <div *ngIf="formDemande.get('empName').invalid &&  formDemande.get('empName').errors && 
+      (formDemande.get('empName').dirty || formDemande.get('empName').touched)">
+      <small class="text-danger" *ngIf="formDemande.get('dateFin').hasError('required')">
+        Ce champ est requis.
+      </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Commentaire</label>
+      <input type="text" class="form-control"  placeholder="Commentaire" formControlName="comment">
+      <div *ngIf="formDemande.get('comment').invalid &&  formDemande.get('comment').errors && 
+      (formDemande.get('comment').dirty || formDemande.get('comment').touched)">
+      <small class="text-danger" *ngIf="formDemande.get('comment').hasError('required')">
+        Ce champ est requis.
+      </small>
+      <small class="text-danger" *ngIf="formDemande.get('comment').hasError('minlength')">
         Le commentaire doit comporter au moins 5 caractères.
       </small>
       </div>

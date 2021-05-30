@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="table-responsive mt-3">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Date Debut</th>
+                    <th scope="col">Date Fin</th>
+                    <th scope="col">employee</th>
+                    <th scope="col">Type Congé</th>
+                    <th scope="col">Commentaire</th>
+                    <th scope="col">Valider/Annuler</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of Datas" >
+                        <td scope="row">{{data.taskData.dateDebut}}</td>
+                        <td scope="row">{{data.taskData.dateFin}}</td>
+                        <td scope="row">{{data.taskData.employee}}</td>
+                        <td scope="row">{{data.taskData.congType}}</td>
+                        <td scope="row">{{data.taskData.comment}}</td>
+                        <td>
+                            <i class="fa fa-check" aria-hidden="true" (click)="managerValidate(data.taskId)"></i>
+                            <i class="fa fa-times" aria-hidden="true" (click)="managerAnnuler(data.taskId)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
