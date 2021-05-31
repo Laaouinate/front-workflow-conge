@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ListeDemandeManagerComponent } from './liste-demande-manager/liste-demande-manager.component';
+import { ListeDemandeHrComponent } from './liste-demande-hr/liste-demande-hr.component';
 
 
 
@@ -18,7 +19,8 @@ import { ListeDemandeManagerComponent } from './liste-demande-manager/liste-dema
   declarations: [
     AppComponent,
     DemandeCongeComponent,
-    ListeDemandeManagerComponent
+    ListeDemandeManagerComponent,
+    ListeDemandeHrComponent
   ],
   imports: [
     ToastrModule.forRoot(),

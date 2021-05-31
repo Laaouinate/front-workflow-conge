@@ -1,0 +1,13 @@
+::ng-deep .jumbotron{
+    background-color:white 
+}
+
+.fa-check{
+    color:green
+}
+
+.fa-times {
+    color:red;
+    position: relative;
+    left: 20%;
+}

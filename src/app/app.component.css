@@ -4,7 +4,12 @@
     padding: 0;
 }
 
-::ng-deep a.liste {
+::ng-deep a.listeMng {
     position: relative;
     left: 15%;
+}
+
+::ng-deep a.listeHr {
+    position: relative;
+    left: 30%;
 }

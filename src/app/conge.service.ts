@@ -24,4 +24,12 @@ export class CongeService {
     return this.http.post(`${baseUrl}/manager/approve/tasks/${taskId}/${approved}`,{});
   }
 
+  getAllHr(): Observable<any> {
+    return this.http.get(`${baseUrl}/RH/tasks`);
+  }
+
+  postHr(taskId,approvedRH): Observable<any> {
+    return this.http.post(`${baseUrl}/RH/approve/tasks/${taskId}/${approvedRH}`,{});
+  }
+
 }

@@ -22,10 +22,10 @@
 
     <div class="form-group">
       <label>Type Congé</label>
-      <input type="text" class="form-control" placeholder="Type de congé" formControlName="congType">
-      <div *ngIf="formDemande.get('congType').invalid &&  formDemande.get('congType').errors && 
-      (formDemande.get('congType').dirty || formDemande.get('congType').touched)">
-      <small class="text-danger" *ngIf="formDemande.get('congType').hasError('required')">
+      <input type="text" class="form-control" placeholder="Type de congé" formControlName="congeType">
+      <div *ngIf="formDemande.get('congeType').invalid &&  formDemande.get('congeType').errors && 
+      (formDemande.get('congeType').dirty || formDemande.get('congeType').touched)">
+      <small class="text-danger" *ngIf="formDemande.get('congeType').hasError('required')">
         Ce champ est requis.
       </small>
       </div>

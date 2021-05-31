@@ -9,6 +9,7 @@
                     <th scope="col">employee</th>
                     <th scope="col">Type Congé</th>
                     <th scope="col">Commentaire</th>
+                    <th scope="col">approuvée</th>
                     <th scope="col">Valider/Annuler</th>
 
                 </tr>
@@ -20,9 +21,12 @@
                         <td scope="row">{{data.taskData.employee}}</td>
                         <td scope="row">{{data.taskData.congeType}}</td>
                         <td scope="row">{{data.taskData.comment}}</td>
+                        <td scope="row">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                           approuvé par le manager </td>
                         <td>
-                            <i class="fa fa-check" aria-hidden="true" (click)="managerValidate(data.taskId)"></i>
-                            <i class="fa fa-times" aria-hidden="true" (click)="managerAnnuler(data.taskId)"></i>
+                            <i class="fa fa-check" aria-hidden="true" (click)="HrValidate(data.taskId)"></i>
+                            <i class="fa fa-times" aria-hidden="true" (click)="HrAnnuler(data.taskId)"></i>
                         </td>
                     </tr>
                 </tbody>

@@ -33,7 +33,7 @@ export class DemandeCongeComponent implements OnInit {
     this.formDemande = this.formBuilder.group({
       dateDebut: ['', Validators.required],
       dateFin: ['', Validators.required],
-      congType: ['', [Validators.required, Validators.minLength(5),Validators.pattern('^[a-zA-Z]+$')]],
+      congeType: ['', [Validators.required, Validators.minLength(5),Validators.pattern('^[a-zA-Z]+$')]],
       empName: ['', Validators.required],
       comment: ['', Validators.required]
     });
