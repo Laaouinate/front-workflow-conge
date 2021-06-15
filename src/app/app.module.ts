@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DemandeCongeComponent } from './demande-conge/demande-conge.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ListeDemandeManagerComponent } from './liste-demande-manager/liste-demande-manager.component';
 import { ListeDemandeHrComponent } from './liste-demande-hr/liste-demande-hr.component';
+import { ProcessComponent } from './process/process.component';
+import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './jwt.interceptor';
 
 
 
@@ -20,7 +24,10 @@ import { ListeDemandeHrComponent } from './liste-demande-hr/liste-demande-hr.com
     AppComponent,
     DemandeCongeComponent,
     ListeDemandeManagerComponent,
-    ListeDemandeHrComponent
+    ListeDemandeHrComponent,
+    ProcessComponent,
+    ListeDemandeComponent,
+    LoginComponent
   ],
   imports: [
     ToastrModule.forRoot(),
@@ -31,7 +38,11 @@ import { ListeDemandeHrComponent } from './liste-demande-hr/liste-demande-hr.com
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -47,7 +47,7 @@ export class DemandeCongeComponent implements OnInit {
     form.dateFin=this.datepipe.transform(form.dateFin, 'dd-MM-yyyy');
 
 
-    console.log(ConvertDateDebut);
+    //console.log(ConvertDateDebut);
     if( this.date > ConvertDateDebut || this.date > ConvertDateFin) {
       this.toastr.error("Merci d'enter une date validée");
     } else {

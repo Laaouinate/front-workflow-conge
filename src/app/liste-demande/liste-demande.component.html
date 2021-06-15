@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="Recherche" class="mr-2 col-form-label-sm">Recherche:&nbsp;</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Recherche" (input)='search($event)'>
+        </div>
+        <div class="table-responsive mt-3">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Date Debut</th>
+                    <th scope="col">Date Fin</th>
+                    <th scope="col">employee</th>
+                    <th scope="col">Type Congé</th>
+                    <th scope="col">Commentaire</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of listDemande" >
+                        <td scope="row">{{data.dateDebut}}</td>
+                        <td scope="row">{{data.dateFin}}</td>
+                        <td scope="row">{{data.empName}}</td>
+                        <td scope="row">{{data.congeType}}</td>
+                        <td scope="row">{{data.comment}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

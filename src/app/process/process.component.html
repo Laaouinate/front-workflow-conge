@@ -1,0 +1,29 @@
+<div class="grouCenter">
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button"  class="btn-circle" [ngClass]="{
+                'btn btn-primary':Process?.activityId==='startEvent',
+                'btn btn-success':Process?.activityId==='demandeTask'
+                 || Process?.activityId==='decisionRh' || Process?.activityId==='DemandeAccept'
+                 || Process?.activityId==='rejectEndOKRH'
+             }" >1</button>
+            <p>Demande</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn-circle" [ngClass]="{
+                'btn btn-secondary': Process?.activityId==='startEvent',
+                'btn btn-primary':Process?.activityId==='demandeTask' || Process?.activityId==='DemandeAccept',
+                'btn btn-success':Process?.activityId==='decisionRh'  || Process?.activityId==='rejectEndOKRH'
+             }" class="btn-circle">2</button>
+            <p>Manager</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button"  class="btn-circle" [ngClass]="{
+                'btn btn-secondary': Process?.activityId==='startEvent',
+                'btn btn-success':Process?.activityId==='decisionRh' || Process?.activityId==='rejectEndOKRH'}">3</button>
+            <p>Hr</p>
+        </div> 
+    </div>
+</div>
+</div>

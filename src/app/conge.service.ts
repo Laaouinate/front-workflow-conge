@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -32,4 +32,20 @@ export class CongeService {
     return this.http.post(`${baseUrl}/RH/approve/tasks/${taskId}/${approvedRH}`,{});
   }
 
+  process(processId): Observable<any> {
+    return this.http.get(`${baseUrl}/process/${processId}`);
+  }
+
+  getRecherche(valuers): Observable<any> {
+    return this.http.get(`${baseUrl}/Recherche/${valuers}`);
+  }
+
+  getRechercheAll(): Observable<any> {
+    return this.http.get(`${baseUrl}/Recherche`);
+  }
+
+
+  login(data:{username: string, password: string, roles: string}): Observable<any> {
+    return this.http.post(`${baseUrl}/authenticate`,data,{responseType: 'text' as 'json'});
+  }
 }
