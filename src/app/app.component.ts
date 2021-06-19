@@ -1,6 +1,5 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Agent } from 'node:http';
 import { AccountService } from './account.service';
 import { CongeService } from './conge.service';
 import { TokenService } from './token.service';
@@ -14,7 +13,7 @@ export class AppComponent {
   title = 'front-workflow-conge';
 
   currentUser: null;
-  Roles: Agent;
+  Roles: string;
 
   constructor(private congeservice: CongeService,
               private accountService: AccountService,
@@ -22,13 +21,16 @@ export class AppComponent {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.Roles = "Agent"
   this.accountService.authStatus.subscribe(res => {
     this.currentUser = this.tokenService.getInfos();
 
     this.Roles = this.tokenService.getInfos()?.Roles;
 
     })
-   // console.log(this.currentUser);
+  //  console.log(this.Roles);
+
+//   console.log(this.currentUser);
   }
 
   logout() {

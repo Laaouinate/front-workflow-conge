@@ -1,7 +1,7 @@
 <form [formGroup]="formDemande">
     <div class="form-group">
       <label>Date Début</label>
-      <input type="date" class="form-control" formControlName="dateDebut">
+      <input type="date" class="form-control" formControlName="dateDebut"  [(value)]="fromDate"  (change)="onKeyUpfromdate($event)">
       <div *ngIf="formDemande.get('dateDebut').invalid &&  formDemande.get('dateDebut').errors && 
       (formDemande.get('dateDebut').dirty || formDemande.get('dateDebut').touched)">
       <small class="text-danger" *ngIf="formDemande.get('dateDebut').hasError('required')">
@@ -11,13 +11,19 @@
     </div>
     <div class="form-group">
       <label>Date Fin</label>
-      <input type="date" class="form-control" formControlName="dateFin">
+      <input type="date" class="form-control" formControlName="dateFin"  [(value)]="toDate" (change)="onKeyUptoDate($event)">
       <div *ngIf="formDemande.get('dateFin').invalid &&  formDemande.get('dateFin').errors && 
       (formDemande.get('dateFin').dirty || formDemande.get('dateFin').touched)">
       <small class="text-danger" *ngIf="formDemande.get('dateFin').hasError('required')">
         Ce champ est requis.
       </small>
       </div>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre Jours</label>
+      <input type="text" name="date" class="form-control" [(value)]="leaveDays" formControlName="nombreJours" readonly />
+    
     </div>
 
     <div class="form-group">
