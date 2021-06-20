@@ -16,16 +16,16 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let data of Datas" >
-                        <td scope="row">{{data.taskData.dateDebut}}</td>
-                        <td scope="row">{{data.taskData.dateFin}}</td>
-                        <td scope="row">{{data.taskData.employee}}</td>
-                        <td scope="row">{{data.taskData.congeType}}</td>
-                        <td scope="row">{{data.taskData.comment}}</td>
+                        <td scope="row">{{data.taskData.DateDebut}}</td>
+                        <td scope="row">{{data.taskData.DateFin}}</td>
+                        <td scope="row">{{data.taskData.username}}</td>
+                        <td scope="row">{{data.taskData.Typeconge}}</td>
+                        <td scope="row">{{data.taskData.Commentaire}}</td>
                         <td scope="row">
                             <i class="fa fa-check" aria-hidden="true"></i>
                            approuvé par le manager </td>
                         <td>
-                            <i class="fa fa-check" aria-hidden="true" (click)="HrValidate(data.taskId)"></i>
+                            <i class="fa fa-check" aria-hidden="true" (click)="HrValidate(data.taskId,data.taskData.username)"></i>
                             <i class="fa fa-times" aria-hidden="true" (click)="HrAnnuler(data.taskId)"></i>
                         </td>
                     </tr>

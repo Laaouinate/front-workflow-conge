@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common'
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
+import { TokenService } from '../token.service';
 
 
 
@@ -17,6 +18,8 @@ export class DemandeCongeComponent implements OnInit {
 
   public formDemande: FormGroup;
   public form: any;
+  public Username: any;
+  public congeType: any;
 
 
   public leaveBalance: boolean = false;
@@ -32,37 +35,52 @@ export class DemandeCongeComponent implements OnInit {
   public leaveDays = '';
 
 
+
+
   constructor(private congeservice: CongeService,
     private formBuilder: FormBuilder,
     public datepipe: DatePipe,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
 
+    this.Username =  this.tokenService.getInfos().sub;
     this.demandeForm();
 
   }
+//, Validators.minLength(5), Validators.pattern('^[a-zA-Z]+$')]
+
+changeCongeType(e) {
+  // this.congeType.setValue(e.target.value, {
+  //   onlySelf: true
+  // })
+  this.congeType =e.target.value
+}
 
   demandeForm() {
     this.formDemande = this.formBuilder.group({
       dateDebut: ['', Validators.required],
       dateFin: ['', Validators.required],
-      congeType: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-zA-Z]+$')]],
-      empName: ['', Validators.required],
-      comment: ['', Validators.required],
+      congeType: ['', Validators.required],
+      user: [''],
+      comment: [''],
       nombreJours:[]
     });
   }
 
   SaveDemande() {
-    this.form = this.formDemande.value;
+    this.formDemande.get('user').setValue({
+      username : this.Username
+    })
 
+    this.formDemande.get('congeType').setValue(this.congeType)
+
+    this.form = this.formDemande.value;
     this.congeservice.create(this.form).subscribe(response => {
     this.formDemande.reset();
     this.toastr.success("Demande a été crée")});
-    //console.log(this.form);
-  
-
+ 
   }
 
   onKeyUpfromdate(event: any) {
@@ -75,7 +93,7 @@ export class DemandeCongeComponent implements OnInit {
       this.toastr.error("Merci d'enter une date validée");
 
     }
-
+    
 
 
     // Calculate days between dates
@@ -161,6 +179,5 @@ export class DemandeCongeComponent implements OnInit {
       this.leaveDays = this.days;
     }
 
-  }
-  
+  }  
 }
