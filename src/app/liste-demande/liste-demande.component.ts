@@ -1,5 +1,6 @@
 import { CongeService } from './../conge.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-demande',
@@ -9,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class ListeDemandeComponent implements OnInit {
 
   public listDemande:any;
-  constructor(private congeservice: CongeService) { }
+  constructor(private congeservice: CongeService,
+              private router :Router) { }
 
   ngOnInit(): void {
     this.getListeDemande();
@@ -19,7 +21,6 @@ export class ListeDemandeComponent implements OnInit {
   getListeDemande() {
     this.congeservice.getRechercheAll().subscribe(response => {
       this.listDemande = response;
-     //  console.log(this.listDemande);
     })
   }
 
@@ -33,6 +34,10 @@ export class ListeDemandeComponent implements OnInit {
       )
     }
     
+  }
+
+  getProcess(process) {
+    this.router.navigate(['/processus',process])
   }
 
 }

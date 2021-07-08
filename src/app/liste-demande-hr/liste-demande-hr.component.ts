@@ -25,17 +25,18 @@ export class ListeDemandeHrComponent implements OnInit {
     })
   }
 
+  //username
   HrValidate(taskId,username) {
     let approvedRH = true;
-    // this.congeservice.postHr(taskId,approvedRH).subscribe(this.Datas =this.Datas.filter(data => {data.taskId != taskId
-    //   this.toastr.success("Demande a été validée")
-    // }));
-    console.log(taskId,username)
+    this.congeservice.postHr(taskId,approvedRH,username).subscribe(this.Datas =this.Datas.filter(data => {data.taskId != taskId
+      this.toastr.success("Demande a été validée")
+    }));
+    // console.log(taskId,username)
   }
 
-  HrAnnuler(taskId) {
+  HrAnnuler(taskId,username) {
     let approvedRH = false;
-    this.congeservice.postHr(taskId,approvedRH).subscribe(this.Datas =this.Datas.filter(data => {data.taskId != taskId
+    this.congeservice.postHr(taskId,approvedRH,username).subscribe(this.Datas =this.Datas.filter(data => {data.taskId != taskId
       this.toastr.error("Demande a été Annulée")
     }));
   }

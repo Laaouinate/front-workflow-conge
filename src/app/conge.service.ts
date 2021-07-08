@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders,HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -20,19 +20,19 @@ export class CongeService {
     return this.http.get(`${baseUrl}/manager/tasks`);
   }
 
-  postManager(taskId,approved): Observable<any> {
-    return this.http.post(`${baseUrl}/manager/approve/tasks/${taskId}/${approved}`,{});
+  postManager(taskId,approved,username): Observable<any> {
+    return this.http.post(`${baseUrl}/manager/approve/tasks/${taskId}/${approved}/${username}`,{});
   }
 
   getAllHr(): Observable<any> {
     return this.http.get(`${baseUrl}/RH/tasks`);
   }
 
-  postHr(taskId,approvedRH): Observable<any> {
-    return this.http.post(`${baseUrl}/RH/approve/tasks/${taskId}/${approvedRH}`,{});
+  postHr(taskId,approvedRH,username): Observable<any> {
+    return this.http.post(`${baseUrl}/RH/approve/tasks/${taskId}/${approvedRH}/${username}`,{});
   }
 
-  process(processId): Observable<any> {
+  process(processId): Observable<any> { 
     return this.http.get(`${baseUrl}/process/${processId}`);
   }
 
@@ -42,6 +42,24 @@ export class CongeService {
 
   getRechercheAll(): Observable<any> {
     return this.http.get(`${baseUrl}/Recherche`);
+  }
+
+  getRecherchAllAgent(user): Observable<any> {
+    return this.http.get(`${baseUrl}/Recherche/${user}`);
+  }
+
+  postUploadFile(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${baseUrl}/UploadFile`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+
   }
 
 

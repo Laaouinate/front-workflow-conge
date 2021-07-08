@@ -5,6 +5,8 @@ import { DatePipe } from '@angular/common'
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 import { TokenService } from '../token.service';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 
@@ -34,6 +36,11 @@ export class DemandeCongeComponent implements OnInit {
   public weeks: any;
   public leaveDays = '';
 
+  selectedFiles: FileList;
+  currentFile: File;
+  message = '';
+
+  fileInfos: Observable<any>;
 
 
 
@@ -65,8 +72,13 @@ changeCongeType(e) {
       congeType: ['', Validators.required],
       user: [''],
       comment: [''],
-      nombreJours:[]
+      nombreJours:[],
+      uploadFil:[]
     });
+  }
+
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 
   SaveDemande() {
@@ -80,6 +92,15 @@ changeCongeType(e) {
     this.congeservice.create(this.form).subscribe(response => {
     this.formDemande.reset();
     this.toastr.success("Demande a été crée")});
+
+    
+      this.currentFile = this.selectedFiles.item(0);
+      this.congeservice.postUploadFile(this.currentFile).subscribe(
+        event => {
+            console.log('ok')
+        })
+    
+
  
   }
 

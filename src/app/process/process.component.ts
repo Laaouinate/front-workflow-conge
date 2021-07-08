@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { CongeService } from './../conge.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,18 +12,22 @@ export class ProcessComponent implements OnInit {
 
   public Process:any;
 
-  constructor(private congeservice: CongeService) { }
+  constructor(private congeservice: CongeService,
+              private router : ActivatedRoute) {}
 
   ngOnInit(): void {
-    let processId =2589
-    this.getPrcess(processId);
+
+    this.Process = this.router.snapshot.paramMap.get('process')
+    this.getPrcess(this.Process)
+  //console.log(this.Process)
   }
 
   getPrcess(processId) {
     this.congeservice.process(processId).subscribe(response =>{
      this.Process =  response;
-     console.log(this.Process);
     })
+    console.log(this.Process)
+
   }
 
 }

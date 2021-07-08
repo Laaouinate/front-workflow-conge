@@ -50,6 +50,17 @@
       </div>
     </div>
 
+    <div class="form-group" *ngIf="this.congeType=='Congé maladie'">
+      <label>Date Fin</label>
+      <input type="file" class="form-control" formControlName="uploadFil"  (change)="selectFile($event)">
+      <!-- <div *ngIf="formDemande.get('dateFin').invalid &&  formDemande.get('dateFin').errors && 
+      (formDemande.get('dateFin').dirty || formDemande.get('dateFin').touched)">
+      <small class="text-danger" *ngIf="formDemande.get('dateFin').hasError('required')">
+        Ce champ est requis.
+      </small>
+      </div> -->
+    </div>
+
     <!-- <div class="form-group">
       <label>Emp Name</label>
       <input type="text" class="form-control" placeholder="Employée" formControlName="empName">

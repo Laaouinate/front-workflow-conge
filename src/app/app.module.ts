@@ -16,6 +16,7 @@ import { ProcessComponent } from './process/process.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './jwt.interceptor';
+import { ListDemandeAgentComponent } from './list-demande-agent/list-demande-agent.component';
 
 
 
@@ -27,7 +28,8 @@ import { JwtInterceptor } from './jwt.interceptor';
     ListeDemandeHrComponent,
     ProcessComponent,
     ListeDemandeComponent,
-    LoginComponent
+    LoginComponent,
+    ListDemandeAgentComponent
   ],
   imports: [
     ToastrModule.forRoot(),

@@ -21,8 +21,8 @@
                         <td scope="row">{{data.taskData.Typeconge}}</td>
                         <td scope="row">{{data.taskData.Commentaire}}</td>
                         <td>
-                            <i class="fa fa-check" aria-hidden="true" (click)="managerValidate(data.taskId)"></i>
-                            <i class="fa fa-times" aria-hidden="true" (click)="managerAnnuler(data.taskId)"></i>
+                            <i class="fa fa-check" aria-hidden="true" (click)="managerValidate(data.taskId,data.taskData.username)"></i>
+                            <i class="fa fa-times" aria-hidden="true" (click)="managerAnnuler(data.taskId,data.taskData.username)"></i>
                         </td>
                     </tr>
                 </tbody>

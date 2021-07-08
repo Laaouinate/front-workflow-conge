@@ -1,3 +1,4 @@
+import { ListDemandeAgentComponent } from './list-demande-agent/list-demande-agent.component';
 import { ListeDemandeComponent } from './liste-demande/liste-demande.component';
 import { ListeDemandeManagerComponent } from './liste-demande-manager/liste-demande-manager.component';
 import { NgModule } from '@angular/core';
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'Demande-Conge-Component', component:DemandeCongeComponent , canActivate: [AuthGuard]},
   { path: 'Liste-Conge-Component', component:ListeDemandeManagerComponent , canActivate: [AuthGuard]},
   { path: 'Liste-Conge-Hr-Component', component:ListeDemandeHrComponent , canActivate: [AuthGuard]},
-  { path: 'processus', component:ProcessComponent , canActivate: [AuthGuard]},
+  { path: 'processus/:process', component:ProcessComponent , canActivate: [AuthGuard]},
   { path: 'Liste-Demande', component:ListeDemandeComponent , canActivate: [AuthGuard]},
+  { path: 'Liste-Demande-agent', component:ListDemandeAgentComponent , canActivate: [AuthGuard]},
   { path: 'Login',component:LoginComponent, canActivate: [AuthAfterGuard]}
 
   

@@ -13,14 +13,17 @@
         <div class="stepwizard-step">
             <button type="button" class="btn-circle" [ngClass]="{
                 'btn btn-secondary': Process?.activityId==='startEvent',
-                'btn btn-primary':Process?.activityId==='demandeTask' || Process?.activityId==='DemandeAccept',
-                'btn btn-success':Process?.activityId==='decisionRh'  || Process?.activityId==='rejectEndOKRH'
+                'btn btn-primary':Process?.activityId==='demandeTask' ,
+                'btn btn-danger':Process?.activityId==='rejectEnd' ,
+                'btn btn-success':Process?.activityId==='decisionRh'  || Process?.activityId==='rejectEndOKRH' || Process?.activityId==='DemandeAccept' 
              }" class="btn-circle">2</button>
             <p>Manager</p>
         </div>
         <div class="stepwizard-step">
             <button type="button"  class="btn-circle" [ngClass]="{
-                'btn btn-secondary': Process?.activityId==='startEvent',
+                'btn btn-secondary': Process?.activityId==='startEvent' ,
+                'btn btn-primary':Process?.activityId==='DemandeAccept' ,
+                'btn btn-danger':Process?.activityId==='rejectEndKORH' ,
                 'btn btn-success':Process?.activityId==='decisionRh' || Process?.activityId==='rejectEndOKRH'}">3</button>
             <p>Hr</p>
         </div> 

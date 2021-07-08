@@ -28,18 +28,18 @@ export class ListeDemandeManagerComponent implements OnInit {
   }
 
   
-  managerValidate(taskId) {
+  managerValidate(taskId,username) {
     let approved = true;
-    this.congeservice.postManager(taskId,approved).subscribe(this.Datas = this.Datas.filter(data => 
+    this.congeservice.postManager(taskId,approved,username).subscribe(this.Datas = this.Datas.filter(data => 
       {data.taskId != taskId
         this.toastr.success("Demande a été validée")
       }));
   }
 
     
-  managerAnnuler(taskId) {
+  managerAnnuler(taskId,username) {
     let approved = false;
-    this.congeservice.postManager(taskId,approved).subscribe(this.Datas = this.Datas.filter(data => 
+    this.congeservice.postManager(taskId,approved,username).subscribe(this.Datas = this.Datas.filter(data => 
       {data.taskId != taskId
         this.toastr.error("Demande a été Annulée")
       }));

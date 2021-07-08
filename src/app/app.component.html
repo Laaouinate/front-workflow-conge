@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">AppCongés</a>
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/logo.png" width="50" height="30">
+  </a>
   <div class="collapse navbar-collapse" id="navbarNav">
   <!-- Links -->
   <ul class="navbar-nav  mr-auto">
@@ -7,21 +9,25 @@
       <a class="nav-link" href="#">Link 1</a>
     </li> -->
     <li  *ngIf="currentUser && Roles == 'Manager'" class="nav-item">
-      <a routerLink="/Liste-Conge-Component" class= "listeMng" routerLinkActive="active">Liste de congé Mng</a>
+      <a routerLink="/Liste-Conge-Component" class= "listeMng" routerLinkActive="active">Demande à traiter</a>
     </li>
 
     <li *ngIf="currentUser && Roles == 'Hr'" class="nav-item">
-      <a routerLink="/Liste-Conge-Hr-Component" class= "listeHr" routerLinkActive="active">Liste de congé Hr</a>
+      <a routerLink="/Liste-Conge-Hr-Component" class= "listeHr" routerLinkActive="active">Demande à traiter</a>
     </li>
 
-    <li *ngIf="currentUser  && Roles == 'Manager'" class="nav-item">
+    <!-- <li *ngIf="currentUser  && Roles == 'Manager'" class="nav-item">
       <a routerLink="/processus" class= "processus" routerLinkActive="active">Processus</a>
-    </li>
+    </li> -->
 
     <li  *ngIf="currentUser  && (Roles == 'Manager' ||  Roles == 'Hr')" class="nav-item">
       <a routerLink="/Liste-Demande" class= "listDemande" routerLinkActive="active">Liste de demande</a>
     </li>
-    
+
+    <li  *ngIf="currentUser  && Roles == 'Agent'" class="nav-item">
+      <a routerLink="/Liste-Demande-agent" class= "listDemande" routerLinkActive="active">Liste de demande</a>
+    </li>
+
     <li  *ngIf="currentUser" class="nav-item">
       <a routerLink="/Demande-Conge-Component" class="Demande" routerLinkActive="active">Demande de congé</a>
     </li>
